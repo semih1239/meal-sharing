@@ -1,0 +1,51 @@
+const express = require("express");
+const router = express.Router();
+const knex = require("../database");
+
+router.get("/", async (request, response) => {
+  try {
+    const reviews = await knex('reviews')
+    response.json(reviews);
+  } catch (error) {
+    throw error;
+  }
+});
+
+
+router.post("/", async (request, response) => {
+    try {
+      await knex("reviews").insert(request.body)
+      response.json("Added review");
+    } catch (error) {
+      throw error;
+    }
+  })
+  
+  router.get("/:id", async (request, response) => {
+    try {
+      const reviews = await knex("reviews").where({ id: Number(request.params.id) });
+      response.json(reviews);
+    } catch (error) {
+      throw error;
+    }
+  });
+  
+  router.put("/:id", async (request, response) => {
+    try {
+      const reviews = await knex("reviews").where({ id: Number(request.params.id) }).update(request.body);
+      response.json(reviews);
+    } catch (error) {
+      throw error;
+    }
+  })
+  
+  router.delete("/:id", async (request, response) => {
+    try {
+      const reviews = await knex("reviews").where({ id: Number(request.params.id) }).del();
+      response.json(reviews);
+    } catch (error) {
+      throw error;
+    }
+  })
+
+module.exports = router;
