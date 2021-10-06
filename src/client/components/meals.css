@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* .main{
+} */
+
+header{
+    height: 35vh;
+    background-image: url('https://www.tupperware.ie/service/magazine/magazine/webservice/imageWebservice/cropped/715');
+    background-size: cover;
+}
+
+header h1{
+    text-align: center;
+    padding: 9% 0;
+    font-size: 40px;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(245, 53, 53, 0.5);
+}
+
+nav, nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    display: block;
+    color: black;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 1.5s;
+}
+
+nav a:hover{
+    border: 1px solid black;
+    border-radius: 100px;
+    color: gold;
+}
+
+.meals{
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 20px;
+    color: green;
+}
+
+.location{
+    font-size: 12px;
+}
+
+.middle{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.description{
+    font-size: 18px;
+}
+
+.price{
+    color: green;
+    font-size: 20px;
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}
