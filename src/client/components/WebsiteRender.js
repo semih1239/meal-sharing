@@ -14,7 +14,7 @@ export const WebsiteRender = () => {
         })
     }, [])
 
-    return <div className='main'>
+    return <div className='page'>
         <header>
             <nav>
                 <div><a>Logo</a></div>
