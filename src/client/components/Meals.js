@@ -10,7 +10,8 @@ export const Meals = (props) => {
     //     }, 2000);
     // }, []) style={{ color: `${registered}` }}
 
-    return <div className='meals'>
+    return <div className='meal'>
+        <div className="img"><img src={props.img} /></div>
         <div className='top'>
             <div className='title'>{props.title}</div>
             <div className='location'>{props.location}</div>

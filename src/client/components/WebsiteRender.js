@@ -38,9 +38,9 @@ export const WebsiteRender = () => {
             </h1>
         </header>
         <main>
-            <div>
+            <div className="meals">
                 {meals.map((meal) => <Meals key={meal.id} title={meal.title} description={meal.description} location={meal.location} 
-                maxReservations={meal.max_reservations} price={meal.price} registeredGuests={meal.registered_guests}/>)}
+                maxReservations={meal.max_reservations} price={meal.price} registeredGuests={meal.registered_guests} img={meal.img_link}/>)}
             </div>
         </main>
         <footer>
