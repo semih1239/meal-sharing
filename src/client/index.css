@@ -38,10 +38,10 @@ a {
 } */
 
 @media screen and (max-width: 1400px) {
-  #root {
+  /* #root {
     padding-left: 10%;
     padding-right: 10%;
-  }
+  } */
 }
 
 @media screen and (max-width: 750px) {

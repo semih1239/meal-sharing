@@ -1,5 +1,5 @@
 import React from "react";
-import "./meals.css"
+import "../meals.css"
 
 export const Meals = (props) => {
     // const [registered, setRegistered] = React.useState('black')
@@ -23,6 +23,10 @@ export const Meals = (props) => {
         <div className='bottom'>
             <div className='max-res'>Max Reservations: {props.maxReservations}</div>
             <div className='reg-guest' >Registered Guests: {props.registeredGuests} / {props.maxReservations}</div>
+        </div>
+        <div className="footer">
+            <div><button>Reservation</button></div>
+            <div className="review"><a href="#">Reviews: </a><span>4/5</span></div>
         </div>
     </div>
 }
