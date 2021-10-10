@@ -5,9 +5,9 @@ export const Navigation = () => {
         <div><a>Logo</a></div>
         <div>
             <ul>
-                <li><a href='#'>HomePage</a></li>
-                <li><a href='#'>Meals</a></li>
-                <li><a href='#'>Create Meal</a></li>
+                <li><a href='http://localhost:3000/'>HomePage</a></li>
+                <li><a href='http://localhost:3000/meals'>Meals</a></li>
+                <li><a href='http://localhost:3000/createmeal'>Create Meal</a></li>
                 <li><a href='#'>Make a Reservation</a></li>
             </ul>
         </div>

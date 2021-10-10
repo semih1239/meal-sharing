@@ -12,7 +12,7 @@ router.get("/", async (request, response) => {
       .sum("reservations.number_of_guests as registered_guests")
       .groupBy("meals.id")
     // I want to add registered guests information to meals
-
+    console.log(meals)
     if (query.availableReservations) {
       meals = meals.filter(meal => meal.max_reservations > meal.registered_guests)
     }
@@ -28,6 +28,7 @@ router.get("/", async (request, response) => {
     if (query.limit) {
       meals = meals.splice(0, Number(query.limit))
     }
+    // let meals = await knex("meals");
     response.json(meals);
   } catch (error) {
     throw error;
@@ -36,8 +37,17 @@ router.get("/", async (request, response) => {
 
 router.post("/", async (request, response) => {
   try {
-    await knex("meals").insert(request.body)
-    response.json("Added meals");
+    // console.log("body", request.body)
+    await knex("meals").insert(
+      {
+        title: request.body.title,
+        description: request.body.description,
+        location: request.body.location,
+        max_reservations: request.body.maxRes,
+        price: request.body.price,
+        img_link: request.body.imgLink
+      }
+    ).then(() => response.redirect('/added'))
   } catch (error) {
     throw error;
   }

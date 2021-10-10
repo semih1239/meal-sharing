@@ -1,23 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import TestComponent from "./components/TestComponent/TestComponent";
 import { Homepage } from "./components/Homepage/HomePage";
 import { Footer } from "./components/Footer/Footer";
 import { Navigation } from "./components/Navigation/Navigation";
 import { MealContextProvider } from "./components/Context/MealsContext";
 import { MealsPage } from "./components/MealsPage/meals";
+import { CreateMeal } from "./components/CreateMeal/CreateMeal";
+import { Created } from "./components/CreateMeal/AddedMeal";
 
 function App() {
   const [meals, setMeals] = React.useState([])
   const [inputValue, setInputValue] = React.useState('')
   const [available, setAvailable] = React.useState('')
   const [maxPrice, setMaxPrice] = React.useState('')
+  const [formData, setFormData] = React.useState({});
 
   const bucket = {
     meals, setMeals,
     inputValue, setInputValue,
     available, setAvailable,
-    maxPrice, setMaxPrice
+    maxPrice, setMaxPrice,
+    formData, setFormData
   }
 
   React.useEffect(() => {
@@ -40,8 +43,11 @@ function App() {
         <Route exact path="/meals">
           <MealsPage />
         </Route>
-        <Route exact path="/test-component">
-          <TestComponent></TestComponent>
+        <Route exact path="/createmeal">
+          <CreateMeal />
+        </Route>
+        <Route exact path="/added">
+          <Created />
         </Route>
         <Footer />
       </MealContextProvider>
