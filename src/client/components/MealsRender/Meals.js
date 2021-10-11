@@ -22,9 +22,8 @@ export const Meals = (props) => {
         </div>
         <div className='bottom'>
             <div className='max-res'>Max Reservations: {props.maxReservations}</div>
-            <div className='reg-guest' >Registered Guests: {props.registeredGuests} / {props.maxReservations}</div>
         </div>
-        <div className="footer">
+        <div className="button_side">
             <div><button>Reservation</button></div>
             <div className="review"><a href="#">Reviews: </a><span>4/5</span></div>
         </div>

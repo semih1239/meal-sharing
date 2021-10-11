@@ -3,7 +3,7 @@ import "./create.css"
 
 
 export const CreateMeal = () => {
-    const [formData, setFormData] = React.useState();
+    const [formData, setFormData] = React.useState({});
     function handleChange(event) {
         console.log(formData);
         setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -30,7 +30,7 @@ export const CreateMeal = () => {
             <h1>Create Meal</h1>
         </header>
         <div>
-            <form onSubmit={postData}>
+            <form onSubmit={postData} >
                 <div className="form-item">
                     <label htmlFor="title">Meal Title : </label>
                     <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Meal Title" />

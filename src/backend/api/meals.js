@@ -7,14 +7,18 @@ router.get("/", async (request, response) => {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const query = request.query
     let meals = await knex("meals")
-      .select("meals.*")
-      .join("reservations", "meals.id", "=", "reservations.meal_id")
-      .sum("reservations.number_of_guests as registered_guests")
-      .groupBy("meals.id")
-    // I want to add registered guests information to meals
-    console.log(meals)
+
     if (query.availableReservations) {
-      meals = meals.filter(meal => meal.max_reservations > meal.registered_guests)
+
+      const availableFilter = await knex("meals")
+        .select("meals.*")
+        .join("reservations", "meals.id", "=", "reservations.meal_id")
+        .sum("reservations.number_of_guests as registered_guests")
+        .groupBy("meals.id")
+
+      const availables = availableFilter.filter(meal => meal.max_reservations <= meal.registered_guests)
+      
+      meals = meals.filter(meal => availables.some(ameal => ameal.id !== meal.id))
     }
     if (query.maxPrice) {
       meals = meals.filter(meal => meal.price < Number(query.maxPrice))
@@ -28,7 +32,6 @@ router.get("/", async (request, response) => {
     if (query.limit) {
       meals = meals.splice(0, Number(query.limit))
     }
-    // let meals = await knex("meals");
     response.json(meals);
   } catch (error) {
     throw error;
@@ -37,7 +40,6 @@ router.get("/", async (request, response) => {
 
 router.post("/", async (request, response) => {
   try {
-    // console.log("body", request.body)
     await knex("meals").insert(
       {
         title: request.body.title,
