@@ -47,7 +47,8 @@ router.post("/", async (request, response) => {
         location: request.body.location,
         max_reservations: request.body.maxRes,
         price: request.body.price,
-        img_link: request.body.imgLink
+        img_link: request.body.imgLink,
+        created_date: new Date()
       }
     ).then(() => response.redirect('/added'))
   } catch (error) {

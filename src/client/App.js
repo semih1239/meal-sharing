@@ -7,6 +7,8 @@ import { MealContextProvider } from "./components/Context/MealsContext";
 import { MealsPage } from "./components/MealsPage/meals";
 import { CreateMeal } from "./components/CreateMeal/CreateMeal";
 import { Created } from "./components/CreateMeal/AddedMeal";
+import { CreateReservation } from "./components/Reservation/CreateReservation";
+import { MealPage } from "./components/meal-details/MealPage";
 
 function App() {
   const [meals, setMeals] = React.useState([])
@@ -48,6 +50,12 @@ function App() {
         </Route>
         <Route exact path="/added">
           <Created />
+        </Route>
+        <Route exact path="/meals/:id">
+          <MealPage />
+        </Route>
+        <Route exact path="/reservation">
+          <CreateReservation />
         </Route>
         <Footer />
       </MealContextProvider>
