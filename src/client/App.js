@@ -16,13 +16,15 @@ function App() {
   const [available, setAvailable] = React.useState('')
   const [maxPrice, setMaxPrice] = React.useState('')
   const [formData, setFormData] = React.useState({});
+  const [reviews, setReviews] = React.useState([])
 
   const bucket = {
     meals, setMeals,
     inputValue, setInputValue,
     available, setAvailable,
     maxPrice, setMaxPrice,
-    formData, setFormData
+    formData, setFormData,
+    reviews
   }
 
   React.useEffect(() => {
@@ -33,8 +35,15 @@ function App() {
       })
   }, [inputValue, available, maxPrice])
 
+  React.useEffect(() => {
+    fetch(`http://localhost:3000/api/reviews`)
+      .then(res => res.json())
+      .then(data => {
+        setReviews(data)
+      })
+  }, [])
 
-
+  console.log(reviews)
   return (
     <Router>
       <MealContextProvider value={bucket}>

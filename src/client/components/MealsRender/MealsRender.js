@@ -7,7 +7,7 @@ export const MealsRender = () => {
     return <>
         <div className="meals">
             {context.meals.map((meal) => <Meals key={meal.id} title={meal.title} description={meal.description} location={meal.location}
-                maxReservations={meal.max_reservations} price={meal.price}  img={meal.img_link} />)}
+                maxReservations={meal.max_reservations} price={meal.price}  img={meal.img_link} mealId={meal.id}/>)}
         </div>
     </>
 }

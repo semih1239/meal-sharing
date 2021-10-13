@@ -29,7 +29,7 @@ export const CreateMeal = () => {
         <header>
             <h1>Create Meal</h1>
         </header>
-        <div>
+        <div className="form">
             <form onSubmit={postData} >
                 <div className="form-item">
                     <label htmlFor="title">Meal Title : </label>

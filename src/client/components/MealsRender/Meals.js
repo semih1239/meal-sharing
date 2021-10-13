@@ -10,6 +10,8 @@ export const Meals = (props) => {
     //     }, 2000);
     // }, []) style={{ color: `${registered}` }}
 
+    const mealLink = `/meals/${props.mealId}`
+
     return <div className='meal'>
         <div className="img"><img src={props.img} /></div>
         <div className='top'>
@@ -24,7 +26,7 @@ export const Meals = (props) => {
             <div className='max-res'>Max Reservations: {props.maxReservations}</div>
         </div>
         <div className="button_side">
-            <div><button>Reservation</button></div>
+            <div><a className="details" href={mealLink}>Details</a></div>
             <div className="review"><a href="#">Reviews: </a><span>4/5</span></div>
         </div>
     </div>
