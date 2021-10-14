@@ -77,7 +77,7 @@ export const MealPage = () => {
     return <div className="page">
         <header>
             <h1>
-                How about an unforgettable meal?
+                Details
             </h1>
         </header>
         <div className="meals">

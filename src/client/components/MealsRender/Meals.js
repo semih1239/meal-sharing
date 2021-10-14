@@ -12,7 +12,7 @@ export const Meals = (props) => {
     }, 0);
 
     const result = sum !== 0 ? sum / allReviews.length : 5
- 
+
     const mealLink = `/meals/${props.mealId}`
 
 
@@ -30,7 +30,10 @@ export const Meals = (props) => {
             <div className='max-res'>Max Reservations: {props.maxReservations}</div>
         </div>
         <div className="button_side">
-            <div><a className="details" href={mealLink}>Details</a></div>
+            <div className="detail-buttons">
+                <div><a className="details" href={mealLink}>Details</a></div>
+                <div><a className="details" href={mealLink}>Reservation</a></div>
+            </div>
             <div className="review">{allReviews.length !== 0 ? `Reviews : ${result}/5` : "Be The First Reviewer"}</div>
         </div>
     </div>

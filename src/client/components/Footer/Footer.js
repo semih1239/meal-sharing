@@ -4,9 +4,9 @@ import React from "react";
 export const Footer = () => {
     return <footer>
         <div>
-            <h2>
+            <h1>
                 Follow Us From Social Media
-            </h2>
+            </h1>
         </div>
         <div className="social">
             <ul>

@@ -2,7 +2,7 @@ import React from "react";
 
 export const Navigation = () => {
     return <nav>
-        <div><a href="/">Logo</a></div>
+        <div className="logo"><a href="/">Meal Share</a></div>
         <div>
             <ul>
                 <li><a href='/'>HomePage</a></li>

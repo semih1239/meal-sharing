@@ -33,6 +33,11 @@ nav ul {
     justify-content: space-between;
 }
 
+nav .logo a{
+    font-family: 'Pacifico', cursive;
+    height: 3vw;
+}
+
 nav a {
     border: 1px solid rgba(245, 53, 53, 0);
     display: inline-block;
@@ -83,6 +88,7 @@ header h1 {
     border-radius: 15px;
     padding: 10px;
     margin: 5px 2%;
+    ;
 }
 
 .img {
@@ -150,11 +156,16 @@ header h1 {
     cursor: pointer;
 }
 
+.detail-buttons {
+    display: flex;
+}
+
 .details {
     padding: 0.5vw;
     background-color: rgba(245, 53, 53, 0.5);
     border-radius: 5px;
     border: 1px solid black;
+    margin-right: 5px;
 }
 
 /* Search Part */
@@ -236,7 +247,7 @@ footer {
     color: rgb(10, 218, 121);
 }
 
-footer small p{
+footer small p {
     font-size: 1vw;
     padding-top: 20px;
 }
@@ -254,7 +265,7 @@ footer small a:hover {
 
 /* MealPage */
 
-.available{
+.available {
     padding: 1vw 8vw;
     font-size: 2vw;
     color: red;
@@ -318,11 +329,11 @@ footer small a:hover {
     cursor: pointer;
 }
 
-.content div{
+.content div {
     margin: 10px;
 }
 
-.content div input{
+.content div input {
     color: black;
     height: 25px;
     padding: 5px;
@@ -331,21 +342,20 @@ footer small a:hover {
     width: 15vw;
 }
 
-.content div input::placeholder{
+.content div input::placeholder {
     color: black;
 }
 
-.content .rating input{
+.content .rating input {
     width: 5vw;
 }
 
-.send-button{
+.send-button {
     padding: 0.4vw;
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
 }
-
 
 
 @media screen and (max-width: 1400px) {
@@ -355,45 +365,87 @@ footer small a:hover {
 }
 
 @media screen and (max-width: 966px) {
-    nav a{
-        font-size: 1.6vw;
+    nav {
+        display: block;
+        position: relative;
+        text-align: center;
     }
+
+    nav ul {
+        display: inline;
+    }
+
+    nav li {
+        border-top: 1px solid white;
+    }
+
+    nav a {
+        font-size: 3vw;
+    }
+
     .meals {
         margin: 0 20px;
         display: block;
     }
 
-    .meal{
+    .meal {
         width: 90%;
         height: 70vh;
         font-size: 1.5vw;
+        max-height: 50vh
     }
 
-    .top, .middle, .title, .location, .price, .description {
+    .top,
+    .middle,
+    .title,
+    .location,
+    .price,
+    .description {
         font-size: 2vw;
     }
 
-    footer h2{
+    footer h2 {
         font-size: 20px;
     }
 
-    .search{
+    .search input {
+        font-size: 2vw;
+        height: 4vw;
+        width: 70vw;
+    }
+
+    .search button {
+        font-size: 1.6vw;
+        width: 30vw;
+        height: 4vw;
+    }
+
+    .search {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .search input{
+
+    .search input {
         margin: 10px 0;
-        font-size: 1.4vw;
     }
-    .search .max-price{
-        width: 12vw;
+
+    .search .max-price {
+        width: 20vw;
     }
-    footer small p{
+
+    footer small p {
         font-size: 1.4vw;
         padding-top: 10px;
     }
-    .form-item label{
+
+    .form-item label {
         font-size: 1.6vw;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .meal {
+        max-height: 34vh;
     }
 }
