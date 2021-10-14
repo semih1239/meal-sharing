@@ -1,16 +1,20 @@
 import React from "react";
 import "../meals.css"
+import { MealContext } from "../Context/MealsContext";
 
 export const Meals = (props) => {
-    // const [registered, setRegistered] = React.useState('black')
-    // React.useEffect(() => {
-    //     setInterval(() => {
-    //         console.log(registered)
-    //         registered === 'red' ? setRegistered('black') : setRegistered('red')
-    //     }, 2000);
-    // }, []) style={{ color: `${registered}` }}
+    const context = React.useContext(MealContext)
 
+    const allReviews = context.reviews.filter(review => review.id === props.mealId)
+    const total = allReviews.map(res => res.stars)
+    const sum = total.reduce(function (a, b) {
+        return a + b;
+    }, 0);
+
+    const result = sum !== 0 ? sum / allReviews.length : 5
+ 
     const mealLink = `/meals/${props.mealId}`
+
 
     return <div className='meal'>
         <div className="img"><img src={props.img} /></div>
@@ -27,7 +31,7 @@ export const Meals = (props) => {
         </div>
         <div className="button_side">
             <div><a className="details" href={mealLink}>Details</a></div>
-            <div className="review"><a href="#">Reviews: </a><span>4/5</span></div>
+            <div className="review">{allReviews.length !== 0 ? `Reviews : ${result}/5` : "Be The First Reviewer"}</div>
         </div>
     </div>
 }

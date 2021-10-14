@@ -14,8 +14,14 @@ router.get("/", async (request, response) => {
   
 router.post("/", async (request, response) => {
     try {
-      await knex("reservations").insert(request.body)
-      response.json("Added reservation");
+      await knex("reservations").insert({
+        number_of_guests : request.body.number_of_guest,
+        meal_id : request.body.meal_id,
+        created_date : new Date(),
+        contact_phonenumber : request.body.phone_number,
+        contact_name : request.body.name,
+        contact_email : request.body.email
+      })
     } catch (error) {
       throw error;
     }

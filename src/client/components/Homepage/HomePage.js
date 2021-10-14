@@ -10,7 +10,9 @@ export const Homepage = () => {
                 How about an unforgettable meal?
             </h1>
         </header>
-        <MealsSearch />
-        <MealsRender />
+        <div>
+            <MealsSearch />
+            <MealsRender />
+        </div>
     </div>
 }

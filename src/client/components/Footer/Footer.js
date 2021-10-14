@@ -4,16 +4,16 @@ import React from "react";
 export const Footer = () => {
     return <footer>
         <div>
-            <h1>
+            <h2>
                 Follow Us From Social Media
-            </h1>
+            </h2>
         </div>
         <div className="social">
             <ul>
-                <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i className="fab fa-youtube"></i></a></li>
+                <li><a href="/"><i className="fab fa-facebook-f"></i></a></li>
+                <li><a href="/"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="/"><i className="fab fa-twitter"></i></a></li>
+                <li><a href="/"><i className="fab fa-youtube"></i></a></li>
             </ul>
         </div>
         <small>

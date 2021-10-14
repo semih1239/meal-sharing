@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Homepage } from "./components/Homepage/HomePage";
 import { Footer } from "./components/Footer/Footer";
 import { Navigation } from "./components/Navigation/Navigation";
@@ -17,6 +17,7 @@ function App() {
   const [maxPrice, setMaxPrice] = React.useState('')
   const [formData, setFormData] = React.useState({});
   const [reviews, setReviews] = React.useState([])
+  const [reservations, setReservations] = React.useState([])
 
   const bucket = {
     meals, setMeals,
@@ -24,11 +25,11 @@ function App() {
     available, setAvailable,
     maxPrice, setMaxPrice,
     formData, setFormData,
-    reviews
+    reviews, reservations
   }
 
   React.useEffect(() => {
-    fetch(`http://localhost:3000/api/meals?title=${inputValue}&availableReservations=${available}&maxPrice=${maxPrice}`)
+    fetch(`/api/meals?title=${inputValue}&availableReservations=${available}&maxPrice=${maxPrice}`)
       .then(res => res.json())
       .then(data => {
         setMeals(data)
@@ -36,14 +37,19 @@ function App() {
   }, [inputValue, available, maxPrice])
 
   React.useEffect(() => {
-    fetch(`http://localhost:3000/api/reviews`)
+    fetch(`/api/reviews`)
       .then(res => res.json())
       .then(data => {
         setReviews(data)
       })
+      fetch(`/api/reservations`)
+      .then(res => res.json())
+      .then(data => setReservations(data))
   }, [])
 
-  console.log(reviews)
+
+
+
   return (
     <Router>
       <MealContextProvider value={bucket}>

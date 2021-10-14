@@ -9,7 +9,7 @@ export const CreateReservation = () => {
     }
 
     const postData = () => {
-        fetch('http://localhost:3000/api/meals/', {
+        fetch('/api/meals/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
