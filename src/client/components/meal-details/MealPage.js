@@ -68,11 +68,13 @@ export const MealPage = () => {
         return a + b;
     }, 0);
 
-    const availableSeat = context.meals.map(meal => {
+    let availableSeat = context.meals.map(meal => {
         if (meal.id === mealId) {
             return meal.max_reservations - sum
         }
     })
+
+    availableSeat = availableSeat.filter(seat => seat !== undefined)
 
     return <div className="page">
         <header>
@@ -99,7 +101,6 @@ export const MealPage = () => {
                             </button>
                             <div className="header"><h2> Reservation </h2></div>
                             <div className="content">
-
                                 <form onSubmit={postDataRes}>
                                     <div>
                                         <input type="text" name="name" value={reservation.name} onChange={handleChangeReservation} placeholder="Name" />
@@ -111,7 +112,7 @@ export const MealPage = () => {
                                         <input type="tel" name="phone_number" onChange={handleChangeReservation} placeholder="Phone Number" />
                                     </div>
                                     <div >
-                                        <input type="Number" name="number_of_guest" min={1} max={availableSeat[0]} onChange={handleChangeReservation} placeholder="Number Of Guest" />
+                                        <input type="Number" name="number_of_guest" min={1} max={availableSeat} onChange={handleChangeReservation} placeholder="Number Of Guest" />
                                     </div>
                                     <div>
                                         <button className='send-button' type="submit">Submit</button>
