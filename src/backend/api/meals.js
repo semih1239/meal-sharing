@@ -17,8 +17,8 @@ router.get("/", async (request, response) => {
         .groupBy("meals.id")
 
       const availables = availableFilter.filter(meal => meal.max_reservations <= meal.registered_guests)
-      
-      meals = meals.filter(meal => availables.some(ameal => ameal.id !== meal.id))
+      const availableIds = availables.map(meal => meal.id)
+      meals = meals.filter(meal => !availableIds.includes(meal.id))
     }
     if (query.maxPrice) {
       meals = meals.filter(meal => meal.price < Number(query.maxPrice))

@@ -1,19 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { MealContext } from "../Context/MealsContext";
 
 export const Navigation = () => {
+    const context = React.useContext(MealContext)
+    const ResetValues = () => {
+        context.setInputValue('')
+        context.setMaxPrice('')
+        context.setAvailable('')
+    }
     return <nav>
-        <div className="logo"><a href="/">Meal Share</a></div>
+        <div className="logo"><Link onClick={ResetValues} to="/">Meal Share</Link></div>
         <div>
             <ul>
-                <li><a href='/'>HomePage</a></li>
-                <li><a href='/meals'>Meals</a></li>
-                <li><a href='/createmeal'>Create Meal</a></li>
+                <li><Link onClick={ResetValues} to='/'>HomePage</Link></li>
+                <li><Link onClick={ResetValues} to='/meals'>Meals</Link></li>
+                <li><Link onClick={ResetValues} to='/createmeal'>Create Meal</Link></li>
             </ul>
         </div>
         <div>
             <ul>
-                <li><a href="/">Login</a></li>
-                <li><a href="/">Sign Up</a></li>
+                <li><Link onClick={ResetValues} to="/">Login</Link></li>
+                <li><Link onClick={ResetValues} to="/">Sign Up</Link></li>
             </ul>
         </div>
     </nav>

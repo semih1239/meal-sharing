@@ -1,18 +1,19 @@
 import React from "react";
 import "../meals.css"
 import { MealContext } from "../Context/MealsContext";
+import { Link } from "react-router-dom";
 
 export const Meals = (props) => {
     const context = React.useContext(MealContext)
 
-    const allReviews = context.reviews.filter(review => review.id === props.mealId)
+    const allReviews = context.reviews.filter(review => review.meal_id === props.mealId)
     const total = allReviews.map(res => res.stars)
     const sum = total.reduce(function (a, b) {
         return a + b;
     }, 0);
 
-    const result = sum !== 0 ? sum / allReviews.length : 5
-
+    const result = (sum !== 0 ? sum / allReviews.length : 5).toFixed(2)
+    
     const mealLink = `/meals/${props.mealId}`
 
 
@@ -31,8 +32,8 @@ export const Meals = (props) => {
         </div>
         <div className="button_side">
             <div className="detail-buttons">
-                <div><a className="details" href={mealLink}>Details</a></div>
-                <div><a className="details" href={mealLink}>Reservation</a></div>
+                <div><Link className="details" to={mealLink}>Details</Link></div>
+                <div><Link className="details" to={mealLink}>Reservation</Link></div>
             </div>
             <div className="review">{allReviews.length !== 0 ? `Reviews : ${result}/5` : "Be The First Reviewer"}</div>
         </div>

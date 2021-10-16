@@ -36,6 +36,11 @@ nav ul {
 nav .logo a{
     font-family: 'Pacifico', cursive;
     height: 3vw;
+    border: none;
+}
+
+nav .logo a:hover{
+    border: none;
 }
 
 nav a {
