@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import 'theme.css';
+
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
 #root {
-  padding-left: 30%;
-  padding-right: 30%;
   height: 100vh;
 }
 
 body {
   margin: 0;
-  font-size: 17px;
+  font-size: 1vw;
 }
 
 ul {
@@ -27,20 +26,10 @@ a {
   color: #2d3233;
 }
 
-button {
-  background-color: #3e99c0;
-  border-radius: 8px;
-  border-width: 0px;
-  font-weight: 295;
-  color: rgb(255, 255, 255);
-  padding: 5px;
-  font-size: 17px;
-}
-
+/* 
 @media screen and (max-width: 1400px) {
-  #root {
-    padding-left: 30%;
-    padding-right: 30%;
+  .meals {
+    margin: 20px 5vw;
   }
 }
 
@@ -49,4 +38,4 @@ button {
     padding-left: 0;
     padding-right: 0;
   }
-}
+} */

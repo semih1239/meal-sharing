@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('https://www.tupperware.ie/service/magazine/magazine/webservice/imageWebservice/cropped/715');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+input {
+    background-color: rgba(245, 53, 53, 0.8);
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+/* Navigation Part */
+
+nav {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(245, 53, 53, 0.8);
+}
+
+nav,
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .logo a{
+    font-family: 'Pacifico', cursive;
+    height: 3vw;
+    border: none;
+}
+
+nav .logo a:hover{
+    border: none;
+}
+
+nav a {
+    border: 1px solid rgba(245, 53, 53, 0);
+    display: inline-block;
+    color: white;
+    padding: 15px;
+    transition: 1.25s;
+}
+
+nav a:hover {
+    border: 1px solid rgb(10, 218, 121);
+    border-radius: 100px;
+    color: rgb(10, 218, 121);
+}
+
+/* Header Part */
+
+header {
+    height: 20vw;
+}
+
+header h1 {
+    color: rgb(245, 53, 53);
+    text-align: center;
+    padding: 9% 0;
+    font-size: 3.5vw;
+}
+
+/* Meal Part */
+
+.page {
+    min-height: 80vh;
+    background-color: rgba(239, 239, 239, 0.6);
+}
+
+.meals {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 20px 8vw;
+}
+
+
+.meal {
+    width: 45%;
+    height: 38vw;
+    background-color: rgba(239, 239, 239, 0.8);
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px 2%;
+    ;
+}
+
+.img {
+    width: 100%;
+    height: 70%;
+}
+
+.meals img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.5vw;
+    color: green;
+}
+
+.location {
+    font-size: 1vw;
+    position: relative;
+    top: 0.5vh;
+}
+
+.middle {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.description {
+    font-size: 1vw;
+}
+
+.price {
+    color: green;
+    font-size: 1.3vw;
+}
+
+.bottom {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review {
+    padding: 10px;
+}
+
+.button_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.button_side button {
+    padding: 0.6vw;
+    background-color: rgba(245, 53, 53, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.detail-buttons {
+    display: flex;
+}
+
+.details {
+    padding: 0.5vw;
+    background-color: rgba(245, 53, 53, 0.5);
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+
+/* Search Part */
+
+.search input {
+    font-size: 1vw;
+    height: 3vw;
+    width: 52vw;
+    margin-left: 9.8vw;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.search button {
+    font-size: 1vw;
+    margin: 0 1vw;
+    width: 15vw;
+    height: 3vw;
+    padding: 4px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(245, 53, 53, 0.8);
+    cursor: pointer;
+    transition: 1s;
+}
+
+.search button:hover {
+    background-color: rgb(10, 218, 121);
+    color: white;
+}
+
+.search .max-price {
+    margin-left: 5px;
+    width: 7vw;
+}
+
+/* Footer Part */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 20vh;
+    padding-top: 80px;
+    background-color: rgba(245, 53, 53, 0.8);
+    padding: 10px;
+    color: white;
+}
+
+.social {
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+}
+
+.social ul {
+    align-content: center;
+    display: flex;
+}
+
+.social li {
+    margin: 0 20px;
+}
+
+.social a .fab {
+    color: white;
+    border: 1px solid white;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    transition: 0.5s;
+}
+
+.social a .fab:hover {
+    border: 1px solid rgb(10, 218, 121);
+    border-radius: 25px;
+    color: rgb(10, 218, 121);
+}
+
+footer small p {
+    font-size: 1vw;
+    padding-top: 20px;
+}
+
+footer small a {
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    transition: 0.5s;
+}
+
+footer small a:hover {
+    color: rgb(10, 218, 121);
+}
+
+/* MealPage */
+
+.available {
+    padding: 1vw 8vw;
+    font-size: 2vw;
+    color: red;
+}
+
+/* Pop Up Part */
+
+.modal {
+    background-color: rgb(245, 53, 53, 0.9);
+    font-size: 16px;
+    width: 25em;
+    height: 70vh;
+    text-align: center;
+    color: white;
+    border-radius: 25px;
+    overflow: auto;
+}
+
+.modal .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal .content {
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.modal .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
+
+.review div {
+    padding: 5px;
+}
+
+.popups {
+    display: flex;
+}
+
+.popup button {
+    color: white;
+    padding: 0.6vw;
+    background-color: rgba(245, 53, 53, 0.8);
+    border-radius: 5px;
+    margin-bottom: 1vw;
+    margin-left: 8vw;
+    cursor: pointer;
+}
+
+.content div {
+    margin: 10px;
+}
+
+.content div input {
+    color: black;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+    width: 18em;
+}
+
+.content div input::placeholder {
+    color: black;
+}
+
+.content .rating input {
+    width: 6em;
+}
+
+.send-button {
+    padding: 0.4vw;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .meals {
+        margin: 0 1vw;
+    }
+}
+
+@media screen and (max-width: 966px) {
+    nav {
+        display: block;
+        position: relative;
+        text-align: center;
+    }
+
+    nav ul {
+        display: inline;
+    }
+
+    nav li {
+        border-top: 1px solid white;
+    }
+
+    nav a {
+        font-size: 3vw;
+    }
+
+    .meals {
+        margin: 0 20px;
+        display: block;
+    }
+
+    .meal {
+        width: 90%;
+        height: 70vh;
+        font-size: 1.5vw;
+        max-height: 50vh
+    }
+
+    .top,
+    .middle,
+    .title,
+    .location,
+    .price,
+    .description {
+        font-size: 2vw;
+    }
+
+    footer h2 {
+        font-size: 20px;
+    }
+
+    .search input {
+        font-size: 2vw;
+        height: 4vw;
+        width: 70vw;
+    }
+
+    .search button {
+        font-size: 1.6vw;
+        width: 30vw;
+        height: 4vw;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search input {
+        margin: 10px 0;
+    }
+
+    .search .max-price {
+        width: 20vw;
+    }
+
+    footer small p {
+        font-size: 1.4vw;
+        padding-top: 10px;
+    }
+
+    .form-item label {
+        font-size: 1.6vw;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .meal {
+        max-height: 34vh;
+    }
+}

@@ -7,14 +7,18 @@ router.get("/", async (request, response) => {
     // knex syntax for selecting things. Look up the documentation for knex for further info
     const query = request.query
     let meals = await knex("meals")
-      .select("meals.*")
-      .join("reservations", "meals.id", "=", "reservations.meal_id")
-      .sum("reservations.number_of_guests as registered_guests")
-      .groupBy("meals.id")
-    // I want to add registered guests information to meals
 
     if (query.availableReservations) {
-      meals = meals.filter(meal => meal.max_reservations > meal.registered_guests)
+
+      const availableFilter = await knex("meals")
+        .select("meals.*")
+        .join("reservations", "meals.id", "=", "reservations.meal_id")
+        .sum("reservations.number_of_guests as registered_guests")
+        .groupBy("meals.id")
+
+      const availables = availableFilter.filter(meal => meal.max_reservations <= meal.registered_guests)
+      const availableIds = availables.map(meal => meal.id)
+      meals = meals.filter(meal => !availableIds.includes(meal.id))
     }
     if (query.maxPrice) {
       meals = meals.filter(meal => meal.price < Number(query.maxPrice))
@@ -36,8 +40,17 @@ router.get("/", async (request, response) => {
 
 router.post("/", async (request, response) => {
   try {
-    await knex("meals").insert(request.body)
-    response.json("Added meals");
+    await knex("meals").insert(
+      {
+        title: request.body.title,
+        description: request.body.description,
+        location: request.body.location,
+        max_reservations: request.body.maxRes,
+        price: request.body.price,
+        img_link: request.body.imgLink,
+        created_date: new Date()
+      }
+    ).then(() => response.redirect('/added'))
   } catch (error) {
     throw error;
   }
