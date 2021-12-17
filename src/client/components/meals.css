@@ -281,7 +281,7 @@ footer small a:hover {
 .modal {
     background-color: rgb(245, 53, 53, 0.9);
     font-size: 16px;
-    width: 25vw;
+    width: 25em;
     height: 70vh;
     text-align: center;
     color: white;
@@ -340,11 +340,11 @@ footer small a:hover {
 
 .content div input {
     color: black;
-    height: 25px;
+    height: 30px;
     padding: 5px;
     background-color: white;
     border-radius: 10px;
-    width: 15vw;
+    width: 18em;
 }
 
 .content div input::placeholder {
@@ -352,7 +352,7 @@ footer small a:hover {
 }
 
 .content .rating input {
-    width: 5vw;
+    width: 6em;
 }
 
 .send-button {

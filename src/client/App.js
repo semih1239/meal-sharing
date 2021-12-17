@@ -19,15 +19,6 @@ function App() {
   const [reviews, setReviews] = React.useState([])
   const [reservations, setReservations] = React.useState([])
 
-  const bucket = {
-    meals, setMeals,
-    inputValue, setInputValue,
-    available, setAvailable,
-    maxPrice, setMaxPrice,
-    formData, setFormData,
-    reviews, reservations
-  }
-
   React.useEffect(() => {
     fetch(`/api/meals?title=${inputValue}&availableReservations=${available}&maxPrice=${maxPrice}`)
       .then(res => res.json())
@@ -42,17 +33,23 @@ function App() {
       .then(data => {
         setReviews(data)
       })
-      fetch(`/api/reservations`)
+    fetch(`/api/reservations`)
       .then(res => res.json())
       .then(data => setReservations(data))
   }, [])
 
 
 
-
   return (
     <Router>
-      <MealContextProvider value={bucket}>
+      <MealContextProvider value={{
+        meals, setMeals,
+        inputValue, setInputValue,
+        available, setAvailable,
+        maxPrice, setMaxPrice,
+        formData, setFormData,
+        reviews, reservations
+      }}>
         <Navigation />
         <Route exact path="/">
           <Homepage />

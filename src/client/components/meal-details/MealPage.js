@@ -74,7 +74,7 @@ export const MealPage = () => {
         }
     })
 
-    availableSeat = availableSeat.filter(seat => seat !== undefined)
+    availableSeat = availableSeat.find(seat => seat !== undefined)
 
     return <div className="page">
         <header>
